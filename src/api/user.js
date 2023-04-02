@@ -1,24 +1,33 @@
-import request from '@/utils/request'
+import { auth } from '@/utils/tcb'
 
 export function login(data) {
-  return request({
-    url: '/vue-admin-template/user/login',
-    method: 'post',
-    data
+  const { username, password } = data
+  return new Promise((resolve, reject) => {
+    auth
+      .signInWithEmailAndPassword(username, password)
+      .then((loginState) => {
+        console.log(loginState)
+        resolve({ data: loginState })
+      })
+      .catch((error) => {
+        reject(error)
+      })
   })
 }
 
-export function getInfo(token) {
-  return request({
-    url: '/vue-admin-template/user/info',
-    method: 'get',
-    params: { token }
+export function getInfo() {
+  return new Promise((resolve, reject) => {
+    auth
+      .getCurrenUser()
+      .then((user) => {
+        resolve({ data: user })
+      })
+      .catch((error) => {
+        reject(error)
+      })
   })
 }
 
 export function logout() {
-  return request({
-    url: '/vue-admin-template/user/logout',
-    method: 'post'
-  })
+  return auth.signOut()
 }
