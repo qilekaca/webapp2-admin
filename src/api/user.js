@@ -6,7 +6,6 @@ export function login(data) {
     auth
       .signInWithEmailAndPassword(username, password)
       .then((loginState) => {
-        console.log(loginState)
         resolve({ data: loginState })
       })
       .catch((error) => {
