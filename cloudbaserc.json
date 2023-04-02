@@ -1,0 +1,21 @@
+{
+  "envId": "pisces-9g1p5nk6fbf285fa",
+  "version": "2.0",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "functionRoot": "./functions",
+  "functions": [
+    {
+      "name": "admin-users",
+      "runtime": "Nodejs16.13"
+    },
+    {
+      "name": "admin-colleges",
+      "runtime": "Nodejs16.13"
+    },
+    {
+      "name": "admin-posts",
+      "runtime": "Nodejs16.13"
+    }
+  ],
+  "region": "ap-shanghai"
+}
